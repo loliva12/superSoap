@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.4</version>
+        <version>3.3.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ar.edu.ubp.das</groupId>
@@ -39,6 +39,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web-services</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -55,10 +56,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.ws</groupId>
             <artifactId>spring-ws-core</artifactId>
@@ -118,7 +116,6 @@
             <artifactId>jaxws-maven-plugin</artifactId>
             <version>3.0.1</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -127,117 +124,98 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-                <plugin>
-                    <groupId>com.sun.xml.ws</groupId>
-                    <artifactId>jaxws-maven-plugin</artifactId>
-                    <version>3.0.1</version>
-                    <executions>
-                        <execution>
-                            <id>wsgen-sucursales-info</id>
-                            <goals>
-                                <goal>wsgen</goal>
-                            </goals>
-                            <configuration>
-                                <sei>ar.edu.ubp.das.supermercadosoap.services.SucursalesInfoWS</sei>
-                                <destDir>${project.build.directory}/generatedsources/wsgen</destDir>
-                                <resourceDestDir>${project.build.directory}/generated/wsdl</resourceDestDir>
-                                <genWsdl>true</genWsdl>
-                                <keep>true</keep>
-                                <verbose>true</verbose>
-                                <args>
-                                    <arg>-wsdl:Xsoap1.2</arg>
-                                    <arg>-extension</arg>
-                                </args>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>wsgen-sucursales-precios</id>
-                            <goals>
-                                <goal>wsgen</goal>
-                            </goals>
-                            <configuration>
-                                <sei>ar.edu.ubp.das.supermercadosoap.services.SucursalesPreciosWS</sei>
-                                <destDir>${project.build.directory}/generatedsources/wsgen</destDir>
-                                <resourceDestDir>${project.build.directory}/generated/wsdl</resourceDestDir>
-                                <genWsdl>true</genWsdl>
-                                <keep>true</keep>
-                                <verbose>true</verbose>
-                                <args>
-                                    <arg>-wsdl:Xsoap1.2</arg>
-                                    <arg>-extension</arg>
-                                </args>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.3.1</version>
-                    <executions>
-                        <execution>
-                            <id>copy-generated-wsdl</id>
-                            <phase>prepare-package</phase>
-                            <goals>
-                                <goal>copy-resources</goal>
-                            </goals>
-                            <configuration>
-                                <outputDirectory>${project.basedir}/src/main/resources</outputDirectory>
-                                <resources>
-                                    <resource>
-                                        <directory>${project.build.directory}/generated/wsdl</directory>
-                                        <includes>
-                                            <include>**/*.*</include>
-                                        </includes>
-                                    </resource>
-                                </resources>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>copy-generated-java</id>
-                            <phase>prepare-package</phase>
-                            <goals>
-                                <goal>copy-resources</goal>
-                            </goals>
-                            <configuration>
-                                <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
-                                <resources>
-                                    <resource>
-                                        <directory>${project.build.directory}/generatedsources/wsgen</directory>
-                                        <includes>
-                                            <include>**/*.java</include>
-                                        </includes>
-                                    </resource>
-                                </resources>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.1.0</version>
-                    <executions>
-                        <execution>
-                            <id>clean-generated-files</id>
-                            <phase>install</phase>
-                            <goals>
-                                <goal>clean</goal>
-                            </goals>
-                            <configuration>
-                                <filesets>
-                                    <fileset>
-                                        <directory>${project.build.directory}/generatedsources/wsgen</directory>
-                                    </fileset>
-                                    <fileset>
-                                        <directory>${project.build.directory}/generated/wsdl</directory>
-                                    </fileset>
-                                </filesets>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
 
+            <plugin>
+                <groupId>com.sun.xml.ws</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>wsgen</id>
+                        <goals>
+                            <goal>wsgen</goal>
+                        </goals>
+                        <configuration>
+                            <sei>ar.edu.ubp.das.supermercadosoap.services.SucursalesInfoWS</sei>
+                            <destDir>${project.build.directory}/generated-sources/wsgen</destDir>				<resourceDestDir>${project.build.directory}/generated/wsdl</resourceDestDir>
+                            <genWsdl>true</genWsdl>
+                            <keep>true</keep>
+                            <verbose>true</verbose>
+                            <args>
+                                <arg>-wsdl:Xsoap1.2</arg>
+                                <arg>-extension</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>copy-generated-wsdl</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.basedir}/src/main/resources</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.build.directory}/generated/wsdl</directory>
+                                    <includes>
+                                        <include>**/*.*</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-generated-java</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.build.directory}/generated-sources/wsgen</directory>
+                                    <includes>
+                                        <include>**/*.java</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>clean-generated-files</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                        <configuration>
+                            <filesets>
+                                <fileset>
+                                    <directory>${project.build.directory}/generated-sources/wsgen</directory>
+                                </fileset>
+                                <fileset>
+                                    <directory>${project.build.directory}/generated/wsdl</directory>
+                                </fileset>
+                            </filesets>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 

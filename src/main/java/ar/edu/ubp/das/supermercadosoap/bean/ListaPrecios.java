@@ -2,7 +2,7 @@ package ar.edu.ubp.das.supermercadosoap.bean;
 
 import java.math.BigDecimal;
 
-public class SucursalesPrecios {
+public class ListaPrecios {
     private String cod_barra;
     private String nom_producto;
     private BigDecimal precio;

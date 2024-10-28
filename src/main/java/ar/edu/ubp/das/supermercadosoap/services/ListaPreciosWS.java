@@ -1,7 +1,7 @@
 package ar.edu.ubp.das.supermercadosoap.services;
 
-import ar.edu.ubp.das.supermercadosoap.bean.SucursalesPrecios;
-import ar.edu.ubp.das.supermercadosoap.repository.SucursalesPreciosRepository;
+import ar.edu.ubp.das.supermercadosoap.bean.ListaPrecios;
+import ar.edu.ubp.das.supermercadosoap.repository.ListaPreciosRepository;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +11,13 @@ import java.util.List;
 
 @Service
 @WebService
-public class SucursalesPreciosWS {
+public class ListaPreciosWS {
 
     @Autowired
-    private SucursalesPreciosRepository sucursalesPreciosRepository;
+    private ListaPreciosRepository sucursalesPreciosRepository;
 
     @WebMethod
-    public List<SucursalesPrecios> obtenerListaPrecios() {
+    public List<ListaPrecios> obtenerListaPrecios() {
         return sucursalesPreciosRepository.getListaPrecios();
     }
 }
