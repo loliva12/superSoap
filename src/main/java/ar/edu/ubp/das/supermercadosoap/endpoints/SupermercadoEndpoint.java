@@ -1,3 +1,4 @@
+
 package ar.edu.ubp.das.supermercadosoap.endpoints;
 
 import ar.edu.ubp.das.supermercadosoap.bean.ListaPrecios;
@@ -16,8 +17,7 @@ import java.util.List;
 @Endpoint
 public class SupermercadoEndpoint {
 
-    private static final String NAMESPACE_URI_LISTA_PRECIOS = "http://services.supermercadosoap.das.ubp.edu.ar/listaPrecios";
-    private static final String NAMESPACE_URI_SUCURSALES = "http://services.supermercadosoap.das.ubp.edu.ar/sucursales";
+    private static final String NAMESPACE_URI = "http://services.supermercadosoap.das.ubp.edu.ar/";
 
     @Autowired
     private SucursalesInfoWS sucursalesInfoWS;
@@ -25,7 +25,7 @@ public class SupermercadoEndpoint {
     @Autowired
     private ListaPreciosWS listaPreciosWS;
 
-    @PayloadRoot(namespace = NAMESPACE_URI_SUCURSALES, localPart = "obtenerInfoSucursales")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "obtenerInfoSucursales")
     @ResponsePayload
     public ObtenerInfoSucursalesResponse obtenerInfoSucursales(@RequestPayload ObtenerInfoSucursales request) {
         List<SucursalesRequest> sucursales = sucursalesInfoWS.obtenerInfoSucursales();
@@ -35,7 +35,7 @@ public class SupermercadoEndpoint {
         return response;
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI_LISTA_PRECIOS, localPart = "obtenerListaPrecios")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "obtenerListaPrecios")
     @ResponsePayload
     public ObtenerListaPreciosResponse obtenerListaPrecios(@RequestPayload ObtenerListaPrecios request) {
         List<ListaPrecios> precios = listaPreciosWS.obtenerListaPrecios();

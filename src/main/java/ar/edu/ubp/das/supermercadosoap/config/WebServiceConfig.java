@@ -29,8 +29,8 @@ public class WebServiceConfig {
     public DefaultWsdl11Definition sucursalesWsdlDefinition(XsdSchema sucursalesSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("SucursalesInfoWSPort");
-        wsdl11Definition.setLocationUri("/services/sucursales");
-        wsdl11Definition.setTargetNamespace("http://services.supermercadosoap.das.ubp.edu.ar/sucursales");
+        wsdl11Definition.setLocationUri("/services");
+        wsdl11Definition.setTargetNamespace("http://services.supermercadosoap.das.ubp.edu.ar/");
         wsdl11Definition.setSchema(sucursalesSchema);
         wsdl11Definition.setCreateSoap12Binding(true);
         return wsdl11Definition;
@@ -38,15 +38,15 @@ public class WebServiceConfig {
 
     @Bean
     public XsdSchema sucursalesSchema() {
-        return new SimpleXsdSchema(new ClassPathResource("SucursalesInfoWS_schema1.xsd"));
+        return new SimpleXsdSchema(new ClassPathResource("SucursalesInfoWSService_schema1.xsd"));
     }
 
     @Bean(name = "listaPrecios")
     public DefaultWsdl11Definition sucursalesPreciosWsdlDefinition(XsdSchema listaPreciosSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("ListaPreciosWSPort");
-        wsdl11Definition.setLocationUri("/services/listaPrecios");
-        wsdl11Definition.setTargetNamespace("http://services.supermercadosoap.das.ubp.edu.ar/listaPrecios");
+        wsdl11Definition.setLocationUri("/services");
+        wsdl11Definition.setTargetNamespace("http://services.supermercadosoap.das.ubp.edu.ar/");
         wsdl11Definition.setSchema(listaPreciosSchema);
         wsdl11Definition.setCreateSoap12Binding(true);
         return wsdl11Definition;
@@ -54,13 +54,13 @@ public class WebServiceConfig {
 
     @Bean
     public XsdSchema listaPreciosSchema() {
-        return new SimpleXsdSchema(new ClassPathResource("ListaPreciosWS_schema1.xsd"));
+        return new SimpleXsdSchema(new ClassPathResource("ListaPreciosWSService_schema1.xsd"));
     }
 
     @Bean
     public SaajSoapMessageFactory messageFactory() {
         SaajSoapMessageFactory messageFactory = new SaajSoapMessageFactory();
-        messageFactory.setSoapVersion(SoapVersion.SOAP_12);
+        messageFactory.setSoapVersion(SoapVersion.SOAP_11);
         return messageFactory;
     }
 }

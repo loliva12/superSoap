@@ -13,17 +13,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@WebService(serviceName = "SucursalesInfoWS", targetNamespace =
-        "http://services.supermercadosoap.das.ubp.edu.ar/")
+@WebService
 public class SucursalesInfoWS {
 
     @Autowired
     private SucursalesInfoRepository sucursalesInfoRepository;
 
-    @WebMethod(operationName = "obtenerInfoSucursales")
-    @RequestWrapper(localName = "obtenerInfoSucursalesRequest")
-    @ResponseWrapper(localName = "obtenerInfoSucursalesResponse")
-    @WebResult(name = "SucursalesResponse")
+    @WebMethod
     public List<SucursalesRequest> obtenerInfoSucursales() {
         return sucursalesInfoRepository.getInfoSucursales();
     }
