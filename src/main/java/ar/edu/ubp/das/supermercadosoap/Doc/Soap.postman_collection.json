@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "2359dd50-7b38-4689-8117-48ef0de1aa88",
+		"name": "Soap",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38286558"
+	},
+	"item": [
+		{
+			"name": "listaPrecios",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:ser=\"http://services.supermercadosoap.das.ubp.edu.ar/\">\r\n    <soapenv:Header>\r\n        <wsse:Security soapenv:mustUnderstand=\"1\"\r\n                       xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\">\r\n            <wsse:UsernameToken>\r\n                <wsse:Username>usr_admin</wsse:Username>\r\n                <wsse:Password>pwd_admin</wsse:Password>\r\n            </wsse:UsernameToken>\r\n        </wsse:Security>\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <ser:obtenerListaPrecios/>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>\r\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/services/listaPrecios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"services",
+						"listaPrecios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sucursales",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:ser=\"http://services.supermercadosoap.das.ubp.edu.ar/\">\r\n    <soapenv:Header>\r\n        <wsse:Security soapenv:mustUnderstand=\"1\"\r\n                       xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\">\r\n            <wsse:UsernameToken>\r\n                <wsse:Username>usr_admin</wsse:Username>\r\n                <wsse:Password>pwd_admin</wsse:Password>\r\n            </wsse:UsernameToken>\r\n        </wsse:Security>\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <ser:obtenerInfoSucursales/>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>\r\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/services/sucursales",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"services",
+						"sucursales"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
