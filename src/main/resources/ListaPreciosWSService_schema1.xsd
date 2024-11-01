@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://services.supermercadosoap.das.ubp.edu.ar/" xmlns:tns="http://services.supermercadosoap.das.ubp.edu.ar/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="obtenerListaPrecios" type="tns:obtenerListaPrecios"/>
+
+  <xs:element name="obtenerListaPreciosResponse" type="tns:obtenerListaPreciosResponse"/>
+
+  <xs:complexType name="obtenerListaPrecios">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerListaPreciosResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:listaPrecios" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="listaPrecios">
+    <xs:sequence>
+      <xs:element name="cod_barra" type="xs:string" minOccurs="0"/>
+      <xs:element name="nom_producto" type="xs:string" minOccurs="0"/>
+      <xs:element name="precio" type="xs:decimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

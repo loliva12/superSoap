@@ -10,6 +10,8 @@ public class SucursalesRequest {
     private boolean habilitada;
     private String nomLocalidad;
     private String nomProvincia;
+    private String horarios;
+    private String tipos_servicios;
 
     public int getNroSucursal() {
         return nroSucursal;
@@ -83,4 +85,19 @@ public class SucursalesRequest {
         this.nomProvincia = nomProvincia;
     }
 
+    public String getHorarios() {
+        return horarios;
+    }
+
+    public void setHorarios(String horarios) {
+        this.horarios = horarios;
+    }
+
+    public String getTipos_servicios() {
+        return tipos_servicios;
+    }
+
+    public void setTipos_servicios(String tipos_servicios) {
+        this.tipos_servicios = tipos_servicios;
+    }
 }
