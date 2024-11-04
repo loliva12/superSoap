@@ -12,6 +12,15 @@ public class SucursalesRequest {
     private String nomProvincia;
     private String horarios;
     private String tipos_servicios;
+    private String productos;
+
+    public String getProductos() {
+        return productos;
+    }
+
+    public void setProductos(String productos) {
+        this.productos = productos;
+    }
 
     public int getNroSucursal() {
         return nroSucursal;
