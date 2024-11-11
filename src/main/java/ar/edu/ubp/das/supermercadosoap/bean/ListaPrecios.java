@@ -6,6 +6,7 @@ public class ListaPrecios {
     private String cod_barra;
     private String nom_producto;
     private BigDecimal precio;
+    private String nom_categoria;
 
     public String getCod_barra() {
         return cod_barra;
@@ -29,5 +30,13 @@ public class ListaPrecios {
 
     public void setPrecio(BigDecimal precio) {
         this.precio = precio;
+    }
+
+    public String getNom_categoria() {
+        return nom_categoria;
+    }
+
+    public void setNom_categoria(String nom_categoria) {
+        this.nom_categoria = nom_categoria;
     }
 }

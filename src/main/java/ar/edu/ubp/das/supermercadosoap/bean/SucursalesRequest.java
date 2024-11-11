@@ -2,6 +2,7 @@ package ar.edu.ubp.das.supermercadosoap.bean;
 
 public class SucursalesRequest {
     private int nroSucursal;
+    private String nomSucursal;
     private String calle;
     private int nroCalle;
     private String telefonos;
@@ -28,6 +29,14 @@ public class SucursalesRequest {
 
     public void setNroSucursal(int nroSucursal) {
         this.nroSucursal = nroSucursal;
+    }
+
+    public String getNomSucursal() {
+        return nomSucursal;
+    }
+
+    public void setNomSucursal(String nomSucursal) {
+        this.nomSucursal = nomSucursal;
     }
 
     public String getCalle() {
