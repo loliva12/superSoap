@@ -3,7 +3,6 @@ package ar.edu.ubp.das.supermercadosoap.endpoints;
 
 import ar.edu.ubp.das.supermercadosoap.bean.ListaPrecios;
 import ar.edu.ubp.das.supermercadosoap.bean.SucursalesRequest;
-import ar.edu.ubp.das.supermercadosoap.services.SucursalesInfoWS;
 import ar.edu.ubp.das.supermercadosoap.services.ListaPreciosWS;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -19,8 +18,8 @@ public class SupermercadoEndpoint {
 
     private static final String NAMESPACE_URI = "http://services.supermercadosoap.das.ubp.edu.ar/";
 
-    @Autowired
-    private SucursalesInfoWS sucursalesInfoWS;
+   /* @Autowired
+    private SucursalesInfoWS sucursalesInfoWS;*/
 
     @Autowired
     private ListaPreciosWS listaPreciosWS;
@@ -28,7 +27,7 @@ public class SupermercadoEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "obtenerInfoSucursales")
     @ResponsePayload
     public ObtenerInfoSucursalesResponse obtenerInfoSucursales(@RequestPayload ObtenerInfoSucursales request) {
-        List<SucursalesRequest> sucursales = sucursalesInfoWS.obtenerInfoSucursales();
+        List<SucursalesRequest> sucursales = listaPreciosWS.obtenerInfoSucursales();
 
         ObtenerInfoSucursalesResponse response = new ObtenerInfoSucursalesResponse();
         response.setReturn(sucursales);

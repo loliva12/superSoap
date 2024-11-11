@@ -1,7 +1,9 @@
 package ar.edu.ubp.das.supermercadosoap.services;
 
 import ar.edu.ubp.das.supermercadosoap.bean.ListaPrecios;
+import ar.edu.ubp.das.supermercadosoap.bean.SucursalesRequest;
 import ar.edu.ubp.das.supermercadosoap.repository.ListaPreciosRepository;
+import ar.edu.ubp.das.supermercadosoap.repository.SucursalesInfoRepository;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
@@ -30,4 +32,18 @@ public class ListaPreciosWS {
     public List<ListaPrecios> obtenerListaPrecios() {
         return listaPreciosRepository.getListaPrecios();
     }
+
+    @Autowired
+    private SucursalesInfoRepository sucursalesInfoRepository;
+
+    @WebMethod(operationName = "obtenerInfoSucursales")
+    @RequestWrapper(localName = "obtenerInfoSucursalesRequest")
+    @ResponseWrapper(localName = "obtenerInfoSucursalesResponse")
+    @WebResult(name = "InfoSucursales")
+    public List<SucursalesRequest> obtenerInfoSucursales() {
+        return sucursalesInfoRepository.getInfoSucursales();
+    }
+
 }
+
+

@@ -25,11 +25,25 @@ public class WebServiceConfig {
         return new ServletRegistrationBean<>(servlet, "/services/*");
     }
 
+    // Configuración para "obtenerListaPrecios"
+    @Bean(name = "listaPrecios")
+    public DefaultWsdl11Definition listaPreciosWsdlDefinition(XsdSchema listaPreciosSchema) {
+        DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+        wsdl11Definition.setPortTypeName("ListaPreciosWSPort");
+        wsdl11Definition.setLocationUri("/services/listaPrecios");
+        wsdl11Definition.setTargetNamespace("http://services.supermercadosoap.das.ubp.edu.ar/");
+        wsdl11Definition.setSchema(listaPreciosSchema);
+        wsdl11Definition.setCreateSoap12Binding(true);
+        return wsdl11Definition;
+    }
+
+
+    // Configuración para "obtenerInfoSucursales"
     @Bean(name = "sucursales")
     public DefaultWsdl11Definition sucursalesWsdlDefinition(XsdSchema sucursalesSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-        wsdl11Definition.setPortTypeName("SucursalesInfoWSPort");
-        wsdl11Definition.setLocationUri("/services");
+        wsdl11Definition.setPortTypeName("ListaPreciosWSPort");
+        wsdl11Definition.setLocationUri("/services/sucursales");
         wsdl11Definition.setTargetNamespace("http://services.supermercadosoap.das.ubp.edu.ar/");
         wsdl11Definition.setSchema(sucursalesSchema);
         wsdl11Definition.setCreateSoap12Binding(true);
@@ -38,23 +52,7 @@ public class WebServiceConfig {
 
     @Bean
     public XsdSchema sucursalesSchema() {
-        return new SimpleXsdSchema(new ClassPathResource("SucursalesInfoWSService_schema1.xsd"));
-    }
-
-    @Bean(name = "listaPrecios")
-    public DefaultWsdl11Definition sucursalesPreciosWsdlDefinition(XsdSchema listaPreciosSchema) {
-        DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-        wsdl11Definition.setPortTypeName("ListaPreciosWSPort");
-        wsdl11Definition.setLocationUri("/services");
-        wsdl11Definition.setTargetNamespace("http://services.supermercadosoap.das.ubp.edu.ar/");
-        wsdl11Definition.setSchema(listaPreciosSchema);
-        wsdl11Definition.setCreateSoap12Binding(true);
-        return wsdl11Definition;
-    }
-
-    @Bean
-    public XsdSchema listaPreciosSchema() {
-        return new SimpleXsdSchema(new ClassPathResource("ListaPreciosWSService_schema1.xsd"));
+        return new SimpleXsdSchema(new ClassPathResource("ListaPreciosWS_schema1.xsd"));
     }
 
     @Bean
