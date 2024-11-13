@@ -139,7 +139,7 @@
                             <goal>wsgen</goal>
                         </goals>
                         <configuration>
-                            <sei>ar.edu.ubp.das.supermercadosoap.services.ListaPreciosWS</sei>
+                            <sei>ar.edu.ubp.das.supermercadosoap.services.SupermercadoWS</sei>
                             <destDir>${project.build.directory}/generated-sources/wsgen</destDir>				<resourceDestDir>${project.build.directory}/generated/wsdl</resourceDestDir>
                             <genWsdl>true</genWsdl>
                             <keep>true</keep>

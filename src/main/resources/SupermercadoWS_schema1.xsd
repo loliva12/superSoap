@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://services.supermercadosoap.das.ubp.edu.ar/" xmlns:tns="http://services.supermercadosoap.das.ubp.edu.ar/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="obtenerInfoSucursales" type="tns:obtenerInfoSucursales"/>
+
+  <xs:element name="obtenerInfoSucursalesRequest" nillable="true" type="tns:obtenerInfoSucursales"/>
+
+  <xs:element name="obtenerInfoSucursalesResponse" type="tns:obtenerInfoSucursalesResponse"/>
+
+  <xs:element name="obtenerListaPrecios" type="tns:obtenerListaPrecios"/>
+
+  <xs:element name="obtenerListaPreciosRequest" nillable="true" type="tns:obtenerListaPrecios"/>
+
+  <xs:element name="obtenerListaPreciosResponse" type="tns:obtenerListaPreciosResponse"/>
+
+  <xs:complexType name="obtenerInfoSucursales">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerInfoSucursalesResponse">
+    <xs:sequence>
+      <xs:element name="InfoSucursales" type="tns:sucursalesRequest" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sucursalesRequest">
+    <xs:sequence>
+      <xs:element name="calle" type="xs:string" minOccurs="0"/>
+      <xs:element name="coordLatitud" type="xs:string" minOccurs="0"/>
+      <xs:element name="coordLongitud" type="xs:string" minOccurs="0"/>
+      <xs:element name="habilitada" type="xs:boolean"/>
+      <xs:element name="horarios" type="xs:string" minOccurs="0"/>
+      <xs:element name="nomLocalidad" type="xs:string" minOccurs="0"/>
+      <xs:element name="nomProvincia" type="xs:string" minOccurs="0"/>
+      <xs:element name="nomSucursal" type="xs:string" minOccurs="0"/>
+      <xs:element name="nroCalle" type="xs:int"/>
+      <xs:element name="nroSucursal" type="xs:int"/>
+      <xs:element name="productos" type="xs:string" minOccurs="0"/>
+      <xs:element name="telefonos" type="xs:string" minOccurs="0"/>
+      <xs:element name="tipos_servicios" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerListaPrecios">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerListaPreciosResponse">
+    <xs:sequence>
+      <xs:element name="ListaPrecios" type="tns:listaPrecios" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="listaPrecios">
+    <xs:sequence>
+      <xs:element name="cod_barra" type="xs:string" minOccurs="0"/>
+      <xs:element name="nom_categoria" type="xs:string" minOccurs="0"/>
+      <xs:element name="nom_producto" type="xs:string" minOccurs="0"/>
+      <xs:element name="precio" type="xs:decimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

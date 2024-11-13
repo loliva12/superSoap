@@ -15,11 +15,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@WebService(serviceName = "ListaPreciosWS", targetNamespace =
+@WebService(serviceName = "SupermercadoWS", targetNamespace =
         "http://services.supermercadosoap.das.ubp.edu.ar/")
-
-
-public class ListaPreciosWS {
+public class SupermercadoWS {
 
     @Autowired
     private ListaPreciosRepository listaPreciosRepository;
@@ -28,7 +26,6 @@ public class ListaPreciosWS {
     @RequestWrapper(localName = "obtenerListaPreciosRequest")
     @ResponseWrapper(localName = "obtenerListaPreciosResponse")
     @WebResult(name = "ListaPrecios")
-
     public List<ListaPrecios> obtenerListaPrecios() {
         return listaPreciosRepository.getListaPrecios();
     }
@@ -43,7 +40,6 @@ public class ListaPreciosWS {
     public List<SucursalesRequest> obtenerInfoSucursales() {
         return sucursalesInfoRepository.getInfoSucursales();
     }
-
 }
 
 

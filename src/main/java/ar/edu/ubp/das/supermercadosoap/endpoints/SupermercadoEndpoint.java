@@ -1,9 +1,8 @@
-
 package ar.edu.ubp.das.supermercadosoap.endpoints;
 
 import ar.edu.ubp.das.supermercadosoap.bean.ListaPrecios;
 import ar.edu.ubp.das.supermercadosoap.bean.SucursalesRequest;
-import ar.edu.ubp.das.supermercadosoap.services.ListaPreciosWS;
+import ar.edu.ubp.das.supermercadosoap.services.SupermercadoWS;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -18,29 +17,30 @@ public class SupermercadoEndpoint {
 
     private static final String NAMESPACE_URI = "http://services.supermercadosoap.das.ubp.edu.ar/";
 
-   /* @Autowired
-    private SucursalesInfoWS sucursalesInfoWS;*/
-
     @Autowired
-    private ListaPreciosWS listaPreciosWS;
-
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "obtenerInfoSucursales")
-    @ResponsePayload
-    public ObtenerInfoSucursalesResponse obtenerInfoSucursales(@RequestPayload ObtenerInfoSucursales request) {
-        List<SucursalesRequest> sucursales = listaPreciosWS.obtenerInfoSucursales();
-
-        ObtenerInfoSucursalesResponse response = new ObtenerInfoSucursalesResponse();
-        response.setReturn(sucursales);
-        return response;
-    }
+    private SupermercadoWS supermercadoWS;
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "obtenerListaPrecios")
     @ResponsePayload
     public ObtenerListaPreciosResponse obtenerListaPrecios(@RequestPayload ObtenerListaPrecios request) {
-        List<ListaPrecios> precios = listaPreciosWS.obtenerListaPrecios();
+        // Llama al método del servicio para obtener los datos
+        List<ListaPrecios> precios = supermercadoWS.obtenerListaPrecios();
 
+        // Construye la respuesta
         ObtenerListaPreciosResponse response = new ObtenerListaPreciosResponse();
-        response.setReturn(precios);
+        response.setListaPrecios(precios);
+        return response;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "obtenerInfoSucursales")
+    @ResponsePayload
+    public ObtenerInfoSucursalesResponse obtenerInfoSucursales(@RequestPayload ObtenerInfoSucursales request) {
+        // Llama al método del servicio para obtener la información de las sucursales
+        List<SucursalesRequest> sucursales = supermercadoWS.obtenerInfoSucursales();
+
+        // Construye la respuesta
+        ObtenerInfoSucursalesResponse response = new ObtenerInfoSucursalesResponse();
+        response.setInfoSucursales(sucursales);
         return response;
     }
 }
