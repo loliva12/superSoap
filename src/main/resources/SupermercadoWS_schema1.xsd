@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" targetNamespace="http://services.supermercadosoap.das.ubp.edu.ar/" xmlns:tns="http://services.supermercadosoap.das.ubp.edu.ar/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <xs:element name="obtenerInfoSucursales" type="tns:obtenerInfoSucursales"/>
-
-  <xs:element name="obtenerInfoSucursalesRequest" nillable="true" type="tns:obtenerInfoSucursales"/>
+  <xs:element name="obtenerInfoSucursalesRequest" type="tns:obtenerInfoSucursalesRequest"/>
 
   <xs:element name="obtenerInfoSucursalesResponse" type="tns:obtenerInfoSucursalesResponse"/>
 
-  <xs:element name="obtenerListaPrecios" type="tns:obtenerListaPrecios"/>
-
-  <xs:element name="obtenerListaPreciosRequest" nillable="true" type="tns:obtenerListaPrecios"/>
+  <xs:element name="obtenerListaPreciosRequest" type="tns:obtenerListaPreciosRequest"/>
 
   <xs:element name="obtenerListaPreciosResponse" type="tns:obtenerListaPreciosResponse"/>
 
-  <xs:complexType name="obtenerInfoSucursales">
+  <xs:complexType name="obtenerInfoSucursalesRequest">
     <xs:sequence/>
   </xs:complexType>
 
@@ -42,7 +38,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="obtenerListaPrecios">
+  <xs:complexType name="obtenerListaPreciosRequest">
     <xs:sequence/>
   </xs:complexType>
 

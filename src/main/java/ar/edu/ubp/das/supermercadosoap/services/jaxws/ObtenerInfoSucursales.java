@@ -6,9 +6,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
 
-@XmlRootElement(name = "obtenerInfoSucursales", namespace = "http://services.supermercadosoap.das.ubp.edu.ar/")
+@XmlRootElement(name = "obtenerInfoSucursalesRequest", namespace = "http://services.supermercadosoap.das.ubp.edu.ar/")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "obtenerInfoSucursales", namespace = "http://services.supermercadosoap.das.ubp.edu.ar/")
+@XmlType(name = "obtenerInfoSucursalesRequest", namespace = "http://services.supermercadosoap.das.ubp.edu.ar/")
 public class ObtenerInfoSucursales {
 
 
