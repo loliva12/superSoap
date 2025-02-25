@@ -2,7 +2,7 @@ package ar.edu.ubp.das.supermercadosoap.bean;
 
 public class SucursalesRequest {
     private int nroSucursal;
-    private String nomSucursal;
+    private String nomSucursales;
     private String calle;
     private int nroCalle;
     private String telefonos;
@@ -14,6 +14,7 @@ public class SucursalesRequest {
     private String horarios;
     private String tipos_servicios;
     private String productos;
+    private int nro_Localidad;
 
     public String getProductos() {
         return productos;
@@ -31,12 +32,12 @@ public class SucursalesRequest {
         this.nroSucursal = nroSucursal;
     }
 
-    public String getNomSucursal() {
-        return nomSucursal;
+    public String getNomSucursales() {
+        return nomSucursales;
     }
 
-    public void setNomSucursal(String nomSucursal) {
-        this.nomSucursal = nomSucursal;
+    public void setNomSucursales(String nomSucursales) {
+        this.nomSucursales = nomSucursales;
     }
 
     public String getCalle() {
@@ -117,5 +118,13 @@ public class SucursalesRequest {
 
     public void setTipos_servicios(String tipos_servicios) {
         this.tipos_servicios = tipos_servicios;
+    }
+
+    public int getNro_Localidad() {
+        return nro_Localidad;
+    }
+
+    public void setNro_Localidad(int nro_Localidad) {
+        this.nro_Localidad = nro_Localidad;
     }
 }

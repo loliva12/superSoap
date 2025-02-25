@@ -32,9 +32,10 @@
       <xs:element name="horarios" type="xs:string" minOccurs="0"/>
       <xs:element name="nomLocalidad" type="xs:string" minOccurs="0"/>
       <xs:element name="nomProvincia" type="xs:string" minOccurs="0"/>
-      <xs:element name="nomSucursal" type="xs:string" minOccurs="0"/>
+      <xs:element name="nomSucursales" type="xs:string" minOccurs="0"/>
       <xs:element name="nroCalle" type="xs:int"/>
       <xs:element name="nroSucursal" type="xs:int"/>
+      <xs:element name="nro_Localidad" type="xs:int"/>
       <xs:element name="productos" type="xs:string" minOccurs="0"/>
       <xs:element name="telefonos" type="xs:string" minOccurs="0"/>
       <xs:element name="tipos_servicios" type="xs:string" minOccurs="0"/>
